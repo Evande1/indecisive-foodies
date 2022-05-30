@@ -54,8 +54,8 @@ Testing and debugging (week 10)
 
 Mockups: 
 
+![test](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image.png)
 
 ![test run](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image%20(1).png)
-![test](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image.png)
 
 ![form](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image%20(2).png)
