@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainRouter from "./MainRouter";
+import {createTheme, Grid, ThemeProvider} from "@mui/material";
+import NavBar from "./components/AppBar";
+
+const theme  = createTheme({
+    palette: {
+        background: {
+            paper: '#ADEFD1FF',
+        },
+        text: {
+        },
+        common: {
+            white: "#ffffff",
+            black: "#000000",
+        },
+        info: {
+            main: "#2C5F3D",
+            light: "#97BC62FF"
+        },
+        secondary: {
+            main: "#00203FFF",
+            light: "#FFE77AFF"
+        }
+
+    }
+})
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <Grid container>
+                <Grid item xs={ 12 }><NavBar/></Grid>
+                <MainRouter />
+            </Grid>
+        </ThemeProvider>
+
+    )
 }
 
 export default App;
