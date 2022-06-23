@@ -12,8 +12,8 @@ npm install
 ```
 
 ### Running backend
-- Run ```sh ./node_modules/.bin/nodemon server.js ``` in the same directory as server.js, the terminal should say database connected for successful connection
-- Run ```sh ./node_modules/.bin/nodemon foodie-bot.js ``` in the same directory as foodie-bot to turn on the telegram bot.
+- Run ``` ./node_modules/.bin/nodemon server.js ``` in the same directory as server.js, the terminal should say database connected for successful connection
+- Run ``` ./node_modules/.bin/nodemon foodie-bot.js ``` in the same directory as foodie-bot to turn on the telegram bot.
 
 ### Telegram bot interaction
 (Insert pictures)
