@@ -1,0 +1,9 @@
+POST http://localhost:8000/api/meal
+Content-Type: application/json
+
+{
+  "meal": "test2",
+  "category": "DINNER"
+}
+
+###
