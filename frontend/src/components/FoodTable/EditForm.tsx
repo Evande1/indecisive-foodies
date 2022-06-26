@@ -50,7 +50,8 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
     },
     onSubmit: async (values) => {
       try {
-        axios.put(`${url}/meal/${mealData._id}`, { ...values });
+        axios.patch(`${url}/meal/${mealData._id}`, { ...values});
+        window.location.reload();
         
       } catch (error) {
           console.log(error);
