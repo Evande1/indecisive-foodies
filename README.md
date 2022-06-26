@@ -32,10 +32,12 @@ Database: Store all food items and users
 
 Tech Stack
 ReactJS (Frontend)
+Formik
 Express + Node.js (Backend)
 MongoDB
 Telegraf (Telegram Bot API, JS library) (Optional)
 Calendar API
+
 
 Special features:
 Calendar list for a week
@@ -59,3 +61,31 @@ Mockups:
 ![test run](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image%20(1).png)
 
 ![form](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image%20(2).png)
+
+
+
+Core Features developed: 
+
+
+Problems Encountered: 
+
+
+Good software engineering practices: 
+1. Git issues 
+2. Adhere to proper commit messages
+3. Linked commits to git issues
+4. Peer code review to ensure good coding quality is ensured  
+5. Git branch was used to ensure that the main branch code is always ready for production 
+
+
+
+
+
+
+
+We data modelled the database schema on a website called DBDiagramIo 
+
+DB diagram: 
+
+
+
