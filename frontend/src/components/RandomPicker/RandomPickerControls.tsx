@@ -14,6 +14,7 @@ const RandomPickerControls = ({isRunning, hasChoice, start, stop, reset} : Rando
         return (
             <Box sx={{width: "200px", marginX: "auto", display: "flex", justifyContent: "space-between"}}>
                 <Button
+                    className="random-picker-button"
                     onClick={isRunning ? stop : start}
                     sx={{color:'#00203FFF'}}
                 >

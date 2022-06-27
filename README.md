@@ -97,7 +97,7 @@ Calendar list for a week, we realised we cannot use google calendar API as we re
 
 Good software engineering practices: 
 1. Git issues 
-![test](https://github.com/Evande1/indecisive-foodies/blob/main/git-issues.png)
+![test](https://github.com/Evande1/indecisive-foodies/blob/main/github-issues.png)
 
 2. Adhere to proper commit messages
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/commit.png)
@@ -119,3 +119,7 @@ DB diagram:
 
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/db_diagram.png)
 
+
+Unit Testing 
+
+![test](https://github.com/Evande1/indecisive-foodies/blob/main/unit-testing.mp4)

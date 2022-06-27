@@ -11,7 +11,7 @@ const RandomPickerChoice = ({choice} : RandomPickerChoiceProps) => {
     return (
         <Box sx={{width: "200px", marginX: "auto", marginBottom: "20px"}}>
             <Box sx={{textAlign: "center"}}>
-                <Typography variant="h5" color='#00203FFF' >
+                <Typography className="random-picker-choice" variant="h5" color='#00203FFF' >
                     {content}
                 </Typography>
             </Box>

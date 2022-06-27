@@ -58,7 +58,7 @@ const HomePage = () => {
                     marginRight : "auto",
                     marginTop : "20px"
                 } }>
-                    <Typography variant="h6">
+                    <Typography className="home-page-header" variant="h6">
                         Randomise Your food
                     </Typography>
                 </Box>
@@ -73,7 +73,7 @@ const HomePage = () => {
                 }>
                     <FormControl fullWidth>
                         <InputLabel id="category-label">Category</InputLabel>
-                        <Select labelId="category-label" onChange={ handleChange }>
+                        <Select className="home-page-dropdown-menu" labelId="category-label" onChange={ handleChange }>
                             <MenuItem value={ "BREAKFAST" }>Breakfast</MenuItem>
                             <MenuItem value={ "LUNCH" }>Lunch</MenuItem>
                             <MenuItem value={ "DINNER" }>Dinner</MenuItem>
