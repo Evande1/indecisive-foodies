@@ -120,6 +120,6 @@ DB diagram:
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/db_diagram.png)
 
 
-Unit Testing 
+Unit Testin
 
-![test](https://github.com/Evande1/indecisive-foodies/blob/main/unit-testing.mp4)
+https://user-images.githubusercontent.com/62635032/175981320-d0cab71e-4b8a-47df-8db4-86de68baf76c.mp4
