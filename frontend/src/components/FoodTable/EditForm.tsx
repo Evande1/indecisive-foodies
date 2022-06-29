@@ -91,6 +91,7 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
             >
               <InputLabel id="select label">Category</InputLabel>
               <Select
+              className='form-select'
                 name="category"
                 value={formik.values.category}
                 onChange={formik.handleChange}
@@ -111,6 +112,7 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
           </Box>
           <Box sx={{ marginTop: 3 }}>
             <Button
+            className='form-submit'
               variant="contained"
               type="submit"
               sx={{ backgroundColor: 'secondary.main' }}

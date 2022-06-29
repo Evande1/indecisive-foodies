@@ -154,7 +154,7 @@ const FoodTable = ({ meals }: tableItems) => {
                   <TableCell>{item.meal}</TableCell>
                   <TableCell>{item.category}</TableCell>
                   <TableCell>
-                      <EditIcon onClick={() => {openInPopup(item)}}/>
+                      <EditIcon  onClick={() => {openInPopup(item)}}/>
                       <DeleteIcon onClick={() => {deleteItem(item._id)}}/>
                   </TableCell>
                 </TableRow>
