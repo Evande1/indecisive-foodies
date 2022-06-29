@@ -95,6 +95,8 @@ Finding a way to hide the secret keys, we used dotenv and .env files to hide our
 
 Calendar list for a week, we realised we cannot use google calendar API as we require authentication to utilise their features.
 
+Integration between material UI and cypress was difficult. Used a lot of time to figure out work arounds. 
+
 Good software engineering practices: 
 1. Git issues 
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/github-issues.png)
