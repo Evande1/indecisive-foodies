@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import config from "../config.json";
 import FoodTable from "../components/FoodTable/FoodTable";
+import { ConstructionOutlined } from "@mui/icons-material";
 
     type mealData = {
         _id: string,
@@ -26,7 +27,7 @@ import FoodTable from "../components/FoodTable/FoodTable";
             axios.get(`${url}/meal`)
                 .then((response) => {
                     const allMeals: mealData[] = response.data;
-                    setMealList(allMeals);
+                    setMealList(allMeals.reverse());
                 })
                 .catch(error => console.log(`Error: ${error}`))
         }

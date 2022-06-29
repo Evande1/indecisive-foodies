@@ -63,7 +63,7 @@ const FormPage = () => {
           paddingX: 7,
         }}
       >
-        <Typography variant={'h4'} color="#00203FFF">
+        <Typography className="form-header" variant={'h4'} color="#00203FFF">
           Fill in your food choices!
         </Typography>
         <form onSubmit={formik.handleSubmit}>
@@ -84,6 +84,7 @@ const FormPage = () => {
               <InputLabel id="select label">Category</InputLabel>
               <Select
                 name="category"
+                className='form-select'
                 value={formik.values.category}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -100,6 +101,7 @@ const FormPage = () => {
           </Box>
           <Box sx={{ marginTop: 3 }}>
             <Button
+              className='form-submit'
               variant="contained"
               type="submit"
               sx={{ backgroundColor: 'secondary.main' }}
