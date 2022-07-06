@@ -25,7 +25,8 @@ export default function NavBar() {
                             </Button>
                         </Typography>
 
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit" onClick={() => history("/login")}>Login</Button>
+                    <Button color="inherit" onClick={() => history("/register")}>Register</Button>
                 </Toolbar>
             </AppBar>
         </Box>
