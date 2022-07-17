@@ -5,6 +5,8 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import config from "../config.json";
 import Typography from "@mui/material/Typography";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 type mealData = {
     _id: string,
@@ -14,6 +16,10 @@ type mealData = {
 
 const url = config.server.url;
 const HomePage = () => {
+    const { user } = useSelector(
+        (state: any) => state.auth
+    )
+    const navigate = useNavigate();
 
     const [namesList, setNamesList] = useState<string[]>([]);
     const [category, setCategory] = useState<string>('BREAKFAST');
@@ -24,12 +30,23 @@ const HomePage = () => {
 
 
     useEffect(() => {
-        getAllMeals();
-    }, [category]);
+        if (!user) {
+            navigate('/login')
+        } else {
+            getAllMeals();
+        }
+
+    }, [user, navigate, category]);
 
     const getAllMeals = () => {
         console.log(category)
-        axios.get(`${ url }/meal/${ category }`)
+        const token =JSON.parse(localStorage.getItem('user') || "").token
+        axios.get(`${ url }/meal/${ category }`, {
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: `Bearer ${token}`,
+            },})
             .then((response) => {
                 const allMeals: mealData[] = response.data;
                 const allMealsNames = allMeals.map(meal => meal.meal);
@@ -73,19 +90,16 @@ const HomePage = () => {
                 }>
                     <FormControl fullWidth>
                         <InputLabel id="category-label">Category</InputLabel>
-                        <Select className="home-page-dropdown-menu" labelId="category-label" onChange={ handleChange }>
+                        <Select className="home-page-dropdown-menu" labelId="category-label" onChange={ handleChange } defaultValue={"BREAKFAST"}>
                             <MenuItem value={ "BREAKFAST" }>Breakfast</MenuItem>
                             <MenuItem value={ "LUNCH" }>Lunch</MenuItem>
                             <MenuItem value={ "DINNER" }>Dinner</MenuItem>
                             <MenuItem value={ "SNACKS" }>Snacks</MenuItem>
                         </Select>
                     </FormControl>
-
                 </Box>
             </Box>
-
         </Grid>
-
     </Grid>
 }
 
