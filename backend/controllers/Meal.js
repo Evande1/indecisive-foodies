@@ -1,9 +1,9 @@
-const MealModel = require('../models/models');
+const MealModel = require('../models/MealModel');
 
 //create and save meals
 exports.create = async (req, res) => {
   if (!req.body.meal && !req.body.category) {
-    res.status(400).send({ message: 'content cannot be empty!' });
+    return res.status(400).send({ message: 'content cannot be empty!' });
   }
   // else create the meal
   const meal = new MealModel({
