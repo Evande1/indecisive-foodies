@@ -5,16 +5,10 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import config from "../config.json";
 import Typography from "@mui/material/Typography";
-
-type mealData = {
-    _id: string,
-    meal: string,
-    category: string
-}
+import {mealData} from "../types/meal";
 
 const url = config.server.url;
 const HomePage = () => {
-
     const [namesList, setNamesList] = useState<string[]>([]);
     const [category, setCategory] = useState<string>('BREAKFAST');
 

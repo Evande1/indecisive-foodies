@@ -2,6 +2,9 @@ import React from 'react';
 import MainRouter from "./MainRouter";
 import {createTheme, Grid, ThemeProvider} from "@mui/material";
 import NavBar from "./components/AppBar";
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 const theme  = createTheme({
     palette: {
@@ -28,12 +31,14 @@ const theme  = createTheme({
 
 function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <Grid container>
-                <Grid item xs={ 12 }><NavBar/></Grid>
-                <MainRouter />
-            </Grid>
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={theme}>
+                <Grid container>
+                    <Grid item xs={ 12 }><NavBar/></Grid>
+                    <MainRouter />
+                </Grid>
+            </ThemeProvider>
+        </QueryClientProvider>
 
     )
 }

@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom";
 
 
 export default function NavBar() {
+
     const history = useNavigate();
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -22,6 +23,9 @@ export default function NavBar() {
                             </Button>
                             <Button sx={{marginLeft: "20px"}} color={"inherit"} onClick={() => history("/admin")} >
                                 Admin
+                            </Button>
+                            <Button sx={{marginLeft: "20px"}} color={"inherit"} onClick={() => history("/scheduler")} >
+                                Scheduler
                             </Button>
                         </Typography>
 
