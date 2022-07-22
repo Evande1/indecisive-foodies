@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 
 const MealModel = require('../models/models');
 const User = require('../models/userModel');
+=======
+const MealModel = require('../models/MealModel');
+>>>>>>> 4255aa98aa139552961c012e0b498a10a68eb78b
 
 //create and save meals
 exports.create = async (req, res) => {
   if (!req.body.meal && !req.body.category) {
-    res.status(400).send({ message: 'content cannot be empty!' });
+    return res.status(400).send({ message: 'content cannot be empty!' });
   }
   // else create the meal
   const meal = new MealModel({
