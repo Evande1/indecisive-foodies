@@ -4,10 +4,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {useNavigate} from "react-router-dom";
-
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../features/auth/authSlice';
+import { AppDispatch } from '../app/store';
 
 export default function NavBar() {
+<<<<<<< HEAD
 
     const history = useNavigate();
     return (
@@ -28,10 +31,59 @@ export default function NavBar() {
                                 Scheduler
                             </Button>
                         </Typography>
+=======
+  const history = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state: any) => state.auth
+  );
 
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-        </Box>
-    );
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    history('/')
+  };
+>>>>>>> c1103ec5380bcc4b8416d9445681d4ad145f5bda
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar sx={{ backgroundColor: 'info.main' }} position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Button color={'inherit'} onClick={() => history('/')}>
+              Indecisive Foodies
+            </Button>
+            <Button
+              sx={{ marginLeft: '20px' }}
+              color={'inherit'}
+              onClick={() => history('/form')}
+            >
+              Form
+            </Button>
+            <Button
+              sx={{ marginLeft: '20px' }}
+              color={'inherit'}
+              onClick={() => history('/admin')}
+            >
+              Admin
+            </Button>
+          </Typography>
+          {user ? (
+            <Button color="inherit" onClick={() => onLogout()}>
+            Logout
+          </Button>
+          ) : (
+            <>
+              <Button color="inherit" onClick={() => history('/login')}>
+                Login
+              </Button>
+              <Button color="inherit" onClick={() => history('/register')}>
+                Register
+              </Button>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }

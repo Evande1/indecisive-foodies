@@ -1,5 +1,34 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "ics": "^2.35.0"
+=======
+  "name": "indecisive-foodies",
+  "version": "1.0.0",
+  "description": "Food randomiser for Orbital 2022",
+  "main": "server.js",
+  "scripts": {
+    "test": "concurrently \"cd backend && ./node_modules/.bin/nodemon server.js\" \"cd frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evande1/indecisive-foodies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evande1/indecisive-foodies/issues"
+  },
+  "homepage": "https://github.com/Evande1/indecisive-foodies#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "concurrently": "^7.2.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3"
+>>>>>>> c1103ec5380bcc4b8416d9445681d4ad145f5bda
   }
 }

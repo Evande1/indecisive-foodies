@@ -1,3 +1,4 @@
+const User = require('../models/userModel');
 const MealModel = require('../models/MealModel');
 
 //create and save meals
@@ -9,6 +10,7 @@ exports.create = async (req, res) => {
   const meal = new MealModel({
     meal: req.body.meal,
     category: req.body.category,
+    user: req.user.id,
   });
 
   await meal
@@ -29,7 +31,7 @@ exports.create = async (req, res) => {
 // Retrieve all mealss from the database.
 exports.findAll = async (req, res) => {
   try {
-    const meal = await MealModel.find();
+    const meal = await MealModel.find({user: req.user.id});
     res.status(200).json(meal);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -48,7 +50,7 @@ exports.findOne = async (req, res) => {
 
 exports.getRandomMealBreakfast = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "BREAKFAST"});
+    const allMeals = await MealModel.find({category : "BREAKFAST", user: req.user.id});
     const meal = allMeals[Math.floor(Math.random()*allMeals.length)];
     res.status(200).json(meal);
   } catch (error) {
@@ -58,7 +60,7 @@ exports.getRandomMealBreakfast = async (req, res) => {
 
 exports.getRandomMealLunch = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "LUNCH"});
+    const allMeals = await MealModel.find({category : "LUNCH", user: req.user.id});
     const meal = allMeals[Math.floor(Math.random()*allMeals.length)];
     res.status(200).json(meal);
   } catch (error) {
@@ -68,7 +70,7 @@ exports.getRandomMealLunch = async (req, res) => {
 
 exports.getRandomMealDinner = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "DINNER"});
+    const allMeals = await MealModel.find({category : "DINNER", user: req.user.id});
     const meal = allMeals[Math.floor(Math.random()*allMeals.length)];
     res.status(200).json(meal);
   } catch (error) {
@@ -78,7 +80,7 @@ exports.getRandomMealDinner = async (req, res) => {
 
 exports.getRandomMealSnack = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "SNACKS"});
+    const allMeals = await MealModel.find({category : "SNACKS", user: req.user.id});
     const meal = allMeals[Math.floor(Math.random()*allMeals.length)];
     res.status(200).json(meal);
   } catch (error) {
@@ -88,7 +90,7 @@ exports.getRandomMealSnack = async (req, res) => {
 
 exports.getAllBreakfast = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "BREAKFAST"});
+    const allMeals = await MealModel.find({category : "BREAKFAST", user: req.user.id});
     res.status(200).json(allMeals);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -97,7 +99,7 @@ exports.getAllBreakfast = async (req, res) => {
 
 exports.getAllLunch = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "LUNCH"});
+    const allMeals = await MealModel.find({category : "LUNCH", user: req.user.id});
     res.status(200).json(allMeals);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -106,7 +108,7 @@ exports.getAllLunch = async (req, res) => {
 
 exports.getAllDinner = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "DINNER"});
+    const allMeals = await MealModel.find({category : "DINNER", user: req.user.id});
     res.status(200).json(allMeals);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -115,7 +117,7 @@ exports.getAllDinner = async (req, res) => {
 
 exports.getAllSnacks = async (req, res) => {
   try {
-    const allMeals = await MealModel.find({category : "SNACKS"});
+    const allMeals = await MealModel.find({category : "SNACKS", user: req.user.id});
     res.status(200).json(allMeals);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -130,6 +132,19 @@ exports.update = async (req, res) => {
   }
 
   const id = req.params.id;
+  const meal = await MealModel.findById(id)
+  const user = await User.findById(req.user.id)
+  
+  // check for user
+  if (!user) {
+    res.status(401)
+    throw new error('User not found')
+  }
+  // make sure login user matches goal user
+  if (meal.user.toString() !== user.id) {
+    res.status(401)
+    throw new error('User not authorised')
+  }
 
   await MealModel.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
@@ -150,6 +165,22 @@ exports.update = async (req, res) => {
 
 // Delete a meal with the specified id in the request
 exports.destroy = async (req, res) => {
+
+  const id = req.params.id;
+  const user = await User.findById(req.user.id)
+  const meal = await MealModel.findById(id)
+  
+  // check for user
+  if (!user) {
+    res.status(401)
+    throw new error('User not found')
+  }
+  // make sure login user matches goal user
+  if (meal.user.toString() !== user.id) {
+    res.status(401)
+    throw new error('User not authorised')
+  }
+
   await MealModel.findByIdAndRemove(req.params.id)
     .then((data) => {
       if (!data) {
