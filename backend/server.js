@@ -37,13 +37,11 @@ app.get('/', (req, res) => {
 
 const MealRoute = require('./routes/Meal');
 const UserRoute = require('./routes/userRoutes');
-
-app.use('/api/meal', MealRoute);
-app.use('/api/users', UserRoute);
 const EventRoute = require('./routes/Event');
 
 app.use('/api/meal', MealRoute);
 app.use('/api/event', EventRoute);
+app.use('/api/users', UserRoute);
 
 //app.get(endpoint, callback) handle get request with get method
 //./node_modules/.bin/nodemon server.js -> run this command
