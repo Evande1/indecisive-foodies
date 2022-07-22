@@ -15,7 +15,7 @@ const MainRouter = () => {
             <Route path="/scheduler" element={<SchedulerPage/>}/>
             <Route path="/login" element={<LoginPage/>}/>
             <Route path="/register" element={<RegisterPage/>}/>
-        </Routes>
+ggb        </Routes>
     )
 }
 
