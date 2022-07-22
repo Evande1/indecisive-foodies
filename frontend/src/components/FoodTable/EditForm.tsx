@@ -27,13 +27,12 @@ type props = {
     _id: string;
     meal: string;
     category: string;
-  } ;
+  };
 };
 
 const url = config.server.url;
 
 const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
-
   const validationSchema = yup.object({
     category: yup.string().required('Required'),
     meal: yup
@@ -41,26 +40,36 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
       .required('Required')
       .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed for this field '),
   });
-  
+
   const formik = useFormik({
-    enableReinitialize : true,
+    enableReinitialize: true,
     initialValues: {
       meal: mealData.meal,
       category: mealData.category,
     },
     onSubmit: async (values) => {
       try {
-        axios.patch(`${url}/meal/${mealData._id}`, { ...values});
+        const token = JSON.parse(localStorage.getItem('user') || '').token;
+        axios.patch(
+          `${url}/meal/${mealData._id}`,
+          { ...values },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         window.location.reload();
-        
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
     },
     validationSchema: validationSchema,
   });
 
-  console.log(mealData)
+  console.log(mealData);
 
   return (
     <Dialog open={openPopup} maxWidth="md" onClose={() => setOpenPopup(false)}>
@@ -79,7 +88,6 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
               onBlur={formik.handleBlur}
               error={formik.touched.meal && Boolean(formik.errors.meal)}
               helperText={formik.touched.meal && formik.errors.meal}
-              
             />
           </Box>
           <Box sx={{ marginTop: 5 }}>
@@ -91,7 +99,7 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
             >
               <InputLabel id="select label">Category</InputLabel>
               <Select
-              className='form-select'
+                className="form-select"
                 name="category"
                 value={formik.values.category}
                 onChange={formik.handleChange}
@@ -112,7 +120,7 @@ const EditForm = ({ openPopup, setOpenPopup, mealData }: props) => {
           </Box>
           <Box sx={{ marginTop: 3 }}>
             <Button
-            className='form-submit'
+              className="form-submit"
               variant="contained"
               type="submit"
               sx={{ backgroundColor: 'secondary.main' }}

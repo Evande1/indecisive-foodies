@@ -111,7 +111,13 @@ const FoodTable = ({ meals }: tableItems) => {
   }
 
   const deleteItem = (id: string) => {
-    axios.delete(`${ url }/meal/${ id }`)
+    const token =JSON.parse(localStorage.getItem('user') || "").token
+    axios.delete(`${ url }/meal/${ id }`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+      },})
         .then((response) => {
           window.location.reload();
         })

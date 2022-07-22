@@ -11,12 +11,18 @@ import { Box } from '@mui/system';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Typography from '@mui/material/Typography';
-import axios from "axios";
-import config from "../config.json";
+import axios from 'axios';
+import config from '../config.json';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const url = config.server.url;
 
 const FormPage = () => {
+  const { user } = useSelector((state: any) => state.auth);
+  const navigate = useNavigate();
+
   const validationSchema = yup.object({
     category: yup.string().required('Required'),
     meal: yup
@@ -30,17 +36,29 @@ const FormPage = () => {
       meal: '',
       category: '',
     },
-    onSubmit: (values, {resetForm}) => {
-      axios.post(`${ url }/meal`, values)
-          .then(res => {
-            console.log(res);
-            resetForm();
-          }).catch(err => console.log(err));
+    onSubmit: (values, { resetForm }) => {
+      const token = JSON.parse(localStorage.getItem('user') || '').token;
+      axios
+        .post(`${url}/meal`, values, {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          resetForm();
+        })
+        .catch((err) => console.log(err));
     },
     validationSchema: validationSchema,
   });
-
-
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   return (
     <Box
@@ -80,28 +98,36 @@ const FormPage = () => {
             />
           </Box>
           <Box sx={{ marginTop: 5 }}>
-            <FormControl size='small' sx={{minWidth:120}} variant="standard" error={formik.touched.category && Boolean(formik.errors.category)}>
+            <FormControl
+              size="small"
+              sx={{ minWidth: 120 }}
+              variant="standard"
+              error={formik.touched.category && Boolean(formik.errors.category)}
+            >
               <InputLabel id="select label">Category</InputLabel>
               <Select
                 name="category"
-                className='form-select'
+                className="form-select"
                 value={formik.values.category}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.category && Boolean(formik.errors.category)}
-              
+                error={
+                  formik.touched.category && Boolean(formik.errors.category)
+                }
               >
                 <MenuItem value="BREAKFAST">Breakfast</MenuItem>
                 <MenuItem value="LUNCH">Lunch</MenuItem>
                 <MenuItem value="DINNER">Dinner</MenuItem>
                 <MenuItem value="SNACKS">Snacks</MenuItem>
               </Select>
-              {formik.touched.category && Boolean(formik.errors.category) ? <FormHelperText>Required</FormHelperText> : null}
+              {formik.touched.category && Boolean(formik.errors.category) ? (
+                <FormHelperText>Required</FormHelperText>
+              ) : null}
             </FormControl>
           </Box>
           <Box sx={{ marginTop: 3 }}>
             <Button
-              className='form-submit'
+              className="form-submit"
               variant="contained"
               type="submit"
               sx={{ backgroundColor: 'secondary.main' }}
