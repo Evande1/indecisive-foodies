@@ -5,14 +5,11 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import config from "../config.json";
 import Typography from "@mui/material/Typography";
+import {mealData} from "../types/meal";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-type mealData = {
-    _id: string,
-    meal: string,
-    category: string
-}
+
 
 const url = config.server.url;
 const HomePage = () => {
@@ -20,7 +17,6 @@ const HomePage = () => {
         (state: any) => state.auth
     )
     const navigate = useNavigate();
-
     const [namesList, setNamesList] = useState<string[]>([]);
     const [category, setCategory] = useState<string>('BREAKFAST');
 

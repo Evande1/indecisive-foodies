@@ -44,6 +44,9 @@ export default function NavBar() {
             >
               Admin
             </Button>
+              <Button sx={{marginLeft: "20px"}} color={"inherit"} onClick={() => history("/scheduler")} >
+                  Scheduler
+              </Button>
           </Typography>
           {user ? (
             <Button color="inherit" onClick={() => onLogout()}>
