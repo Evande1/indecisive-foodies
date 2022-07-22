@@ -8,6 +8,8 @@ import config from "../config.json";
 import {useQuery} from "react-query";
 import {eventData} from "../types/event";
 import {Alert, Button} from "@mui/material";
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const localizer = momentLocalizer(moment)
 const url = config.server.url;
@@ -34,6 +36,18 @@ const getAllEvents: () => Promise<eventData[]> = async () => {
 
 const SchedulerPage = () => {
     // schedule for the next 7 days
+    const { user } = useSelector(
+        (state: any) => state.auth
+    )
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login')
+        }
+
+    }, [user, navigate]);
 
 
     const handleSchedule = () => {
