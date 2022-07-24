@@ -1,54 +1,56 @@
 # Indecisive-foodies
 Orbital 2022
 
-## NUS ORBITAL 2022 - Milestone 1
+## Introduction 
 
-## Proposed Level of Achievement:
+### Proposed Level of Achievement:
 
 **Project Apollo**
 
-## Motivation:
+### Motivation:
 
 We have very indecisive friends who take a long time to decide on what to eat. As such, a lot of time is wasted on this and we hope that we can create something to solve this problem. Often, students suffer from analysis paralysis in all sorts of decisions. We want to decrease the number of decisions that students need to make especially on food choices so they can focus on the more important stuff.
 
 
-## User Stories:
+### User Stories:
 
 - As a user, I want to easily get a randomly selected food choice.
 - As a user, I want to categorise my food choices.
 - As a user, I want to insert my own food choices and categorise them.
 - As a user, I want to navigate around the application easily and intuitively.
-- a user, I want this application to be convenient and be able to use it through a telegram bot.
-- a user, I want to automatically pick the next 7 days of food and save it in my calendar.
+- As a user, I want this application to be convenient and be able to use it through a telegram bot.
+- As a user, I want to automatically pick the next few days worth and save it in my calendar.
 
 
-## Scope of Project:
+### Scope of Project:
 
 The web app allows users to pick a randomly selected food based on the category.
 
-## Features:
+## System Design
 
-Random Generator with a button to start the selection and a dropdown menu for users to select the category
-Form for users to enter the name of the food and choose the category of the entered food.
-Database: Store all food items and users
+### Core Features:
+
+* Random Generator with a button to start the selection and a dropdown menu for users to select the category
+* Form for users to enter the name of the food and choose the category of the entered food.
+* Database: Store all food items and users.
 
 
-## Tech Stack:
+### Additional features:
+
+* Calendar. Instead of needing to open the application and select a food every meal, the user is able to select meals for the next 3 days. By pressing generate next 3 days, users are able to view meals for the next 3 days.
+
+* Telegram API. Able to use the Telegram Bot to retrieve a random food choice from specified meal. 
+
+* Login / Register Feature. A login feature was created to provide users with a personalised food planning experience. Users can create accounts by pressing the register tab and filling up the relevant data. To ensure users data are safe, passwords are hashed using bcrypt and their personalised data are only accessible if they have a valid JWT token. 
+
+
+### Tech Stack:
 
 1. ReactJS (Frontend)
 2. Formik
 3. Express + Node.js (Backend)
 4. MongoDB
-5. Telegraf (Telegram Bot API, JS library) (Optional)
-6. Calendar API
-
-
-## Special features:
-
-Calendar list for a week
-Instead of needing to open the application and select a food every meal, the user is able to select their 3 meals for the next 7 days and save it on google calendar.
-Telegram API
-Able to use the Telegram Bot to retrieve a random food choice
+5. Telegraf (Telegram Bot API, JS library) 
 
 Development Plan:
 Initial design for poster and videos ( Week 1)
@@ -69,7 +71,7 @@ Mockups:
 
 
 
-Core features developed:
+Features developed:
 
 Admin page able to delete, view, edit meals based on categories 
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/app4.png)
@@ -90,6 +92,10 @@ Telegram API Able to use the Telegram Bot to retrieve a random food choice
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/tele4.png)
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/tele5.png)
 
+Calendar for users
+
+
+
 Problems encountered: 
 
 CORS. At first, the http requests worked in postman, but it wasn’t working when we tried integrating the frontend and the backend. Eventually we found out we needed to enable CORS to allow our frontend to make http calls to our backend.
@@ -101,6 +107,8 @@ Finding a way to hide the secret keys, we used dotenv and .env files to hide our
 Calendar list for a week, we realised we cannot use google calendar API as we require authentication to utilise their features.
 
 Integration between material UI and cypress was difficult. Used a lot of time to figure out work arounds. 
+
+Authentication. We should have started with authentication first as we needed to make slight modifications to our database diagrams, adding a user field to each meal. Moreover, the authentication also required that each page would redirect to the login page if no user in signed in.
 
 Good software engineering practices: 
 1. Git issues 
@@ -123,9 +131,18 @@ We data modelled the database schema on a website called DBDiagramIo
 
 DB diagram: 
 
-
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/db_diagram.png)
 
+## Evaluation
+In order to ensure that Indecisive Foodies is working as intended based on the features proposed, we need a formal and thorough plan. 
+
+Tools used:
+* Google Forms
+* Cypress
+
+* Usablility testing
+  * Use of google forms to gather feedback. 
+<Insert images>
 
 Unit Testing
 
