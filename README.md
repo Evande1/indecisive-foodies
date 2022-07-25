@@ -61,7 +61,7 @@ Build random generator ( Week 5 - 7)
 Build Telegram bot and calendar ( Week 8,9)
 Testing and debugging (week 10)
 
-Mockups: 
+### Mockups: 
 
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/MicrosoftTeams-image.png)
 
@@ -71,17 +71,33 @@ Mockups:
 
 
 
-Features developed:
+### Features developed:
 
-Admin page able to delete, view, edit meals based on categories 
+#### Admin page able to delete, view, edit meals based on categories 
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/app4.png)
 
-Random Generator with a button to start the selection and a dropdown menu for users to select the category 
+#### Random Generator with a button to start the selection and a dropdown menu for users to select the category 
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/app1.png)
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/app2.png)
 
-Form for users to enter the name of the food and choose the category of the entered food
+#### Form for users to enter the name of the food and choose the category of the entered food
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/app4.png)
+
+#### Scheduler Page
+
+Add Breakfast, Lunch, Dinner for the next 3 days
+<img width="1485" alt="Screenshot 2022-07-25 at 5 30 46 PM" src="https://user-images.githubusercontent.com/62635032/180745877-9cac8109-4aa6-4ac8-8b5d-5028a7fe4f36.png">
+
+Clear Schedule 
+<img width="1481" alt="Screenshot 2022-07-25 at 5 34 56 PM" src="https://user-images.githubusercontent.com/62635032/180746454-042991bd-54ee-450a-8cbc-165361b7d139.png">
+
+#### Login Page 
+<img width="1483" alt="Screenshot 2022-07-25 at 5 32 36 PM" src="https://user-images.githubusercontent.com/62635032/180745974-897f70c8-b73c-4ec2-8e6f-f2e802437b90.png">
+
+#### SignUp Page
+<img width="1480" alt="Screenshot 2022-07-25 at 5 33 15 PM" src="https://user-images.githubusercontent.com/62635032/180746088-38408b6b-63c9-47d5-afb4-3e4ea2d1357b.png">
+
+
 
 Database: Store all food items 
 
@@ -91,9 +107,6 @@ Telegram API Able to use the Telegram Bot to retrieve a random food choice
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/tele3.png)
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/tele4.png)
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/tele5.png)
-
-Calendar for users
-
 
 
 Problems encountered: 
@@ -131,7 +144,8 @@ We data modelled the database schema on a website called DBDiagramIo
 
 DB diagram: 
 
-![test](https://github.com/Evande1/indecisive-foodies/blob/main/db_diagram.png)
+![updated database diagram](https://user-images.githubusercontent.com/62635032/180745031-842f1af1-92b8-47ce-8019-4987d093f14e.png)
+
 
 ## Evaluation
 In order to ensure that Indecisive Foodies is working as intended based on the features proposed, we need a formal and thorough plan. 
