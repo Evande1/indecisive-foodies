@@ -89,6 +89,7 @@ Testing and debugging (week 10)
 
 Add Breakfast, Lunch, Dinner for the next 3 days
 <img width="1485" alt="Screenshot 2022-07-25 at 5 30 46 PM" src="https://user-images.githubusercontent.com/62635032/180745877-9cac8109-4aa6-4ac8-8b5d-5028a7fe4f36.png">
+![Screenshot 2022-07-25 at 7 35 11 PM](https://user-images.githubusercontent.com/62635032/180768718-732c7170-40c0-4643-ad74-46f4631d1396.png)
 
 Clear Schedule 
 <img width="1481" alt="Screenshot 2022-07-25 at 5 34 56 PM" src="https://user-images.githubusercontent.com/62635032/180746454-042991bd-54ee-450a-8cbc-165361b7d139.png">
@@ -99,9 +100,6 @@ Clear Schedule
 #### SignUp Page
 <img width="1480" alt="Screenshot 2022-07-25 at 5 33 15 PM" src="https://user-images.githubusercontent.com/62635032/180746088-38408b6b-63c9-47d5-afb4-3e4ea2d1357b.png">
 
-
-
-Database: Store all food items 
 
 Telegram API Able to use the Telegram Bot to retrieve a random food choice
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/tele1.png)
@@ -150,6 +148,8 @@ Good software engineering practices:
 * Material UI vs Bootstrap. We chose material UI instead of bootstrap because material UI provides better customization and it is overall a more extensive library with good documentation compared to boostrap. 
 
 
+
+### Data Modelling 
 
 We data modelled the database schema on a website called DBDiagramIo 
 
