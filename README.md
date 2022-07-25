@@ -164,10 +164,13 @@ In order to ensure that Indecisive Foodies is working as intended based on the f
 Tools used:
 * Google Forms
 * Cypress
+* Postman
 
 * Usablility testing
   * Use of google forms to gather feedback. 
-<Insert images>
+<img width="585" alt="forms pt 1" src="https://user-images.githubusercontent.com/62635032/180768961-d659ec70-0164-492a-9082-b20391872e7e.png">
+<img width="577" alt="forms pt2" src="https://user-images.githubusercontent.com/62635032/180768969-525472f8-b28c-42c9-985f-5b5c0deb4b33.png">
+
 
 Unit Testing
 
@@ -175,4 +178,5 @@ https://user-images.githubusercontent.com/62635032/175981320-d0cab71e-4b8a-47df-
 
 Yup Validation 
 
+Made use of yup validation to ensure that form field types are in the correct types and added extra logic to validate form fields as well.
 
