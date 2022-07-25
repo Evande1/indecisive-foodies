@@ -138,6 +138,15 @@ Good software engineering practices:
 ![test](https://github.com/Evande1/indecisive-foodies/blob/main/env-file.png)
 
 
+### Design Decisions:
+* Environment variables. Storing secret keys and other credentials in environment variables prevent authorised access and spamming of database resources.
+
+* User accounts. By making individual user profiles, users are able to customise their food choices and meals for their personal use. 
+
+* Hashing of passwords. Using Bcrypt and JWT, passwords are able to be secured in the database through hashing and the use of a SALT. This prevents unauthorised access even if developers can access the database.
+
+* Material UI vs Bootstrap. We chose material UI instead of bootstrap because material UI provides better customization and it is overall a more extensive library with good documentation compared to boostrap. 
+
 
 
 We data modelled the database schema on a website called DBDiagramIo 
