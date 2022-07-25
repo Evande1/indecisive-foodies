@@ -52,7 +52,7 @@ const HomePage = () => {
             })
             .catch(error => console.log(`Error: ${ error }`))
     }
-    return <Grid container>
+    return  <Grid container>
         <Grid item xs={ 12 }><Box sx={ { margin : "100px" } }/></Grid>
         <Grid item xs={ 12 }>
             <Box
@@ -75,8 +75,21 @@ const HomePage = () => {
                         Randomise Your food
                     </Typography>
                 </Box>
+                { namesList.length == 0 ?
+                    <Box sx={{
+                        marginLeft : "auto",
+                        marginRight : "auto",
+                        color: "red",
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                    }}
 
-                <RandomPicker items={ namesList }></RandomPicker>
+                    >
+                        Please Insert Food
+                    </Box> :
+                    <RandomPicker items={ namesList }></RandomPicker>
+                }
+
                 <Box sx={ {
                     marginLeft : "auto",
                     marginRight : "auto",
